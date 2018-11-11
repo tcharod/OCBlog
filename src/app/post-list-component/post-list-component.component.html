@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">Posts</h1>
+      </div>
+      <div class="panel-body">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let post of posts" class="list-group-item" [ngClass]="{
+              'list-group-item-success' : post.loveIts > 0,
+              'list-group-item-danger' : post.loveIts < 0
+            }">
+                <app-post-list-item-component [post]="post"></app-post-list-item-component>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
