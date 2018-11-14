@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Nouveau post</h1>
+    </div>
+    <div class="panel-body">
+      <div class="card">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <form [formGroup]="postFrom" (ngSubmit)="onSavePost()">
+              <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" id="title"
+                       class="form-control" formControlName="title">
+              </div>
+              <div class="form-group">
+                <label for="content">Contenu</label>
+                <textarea id="content"
+                          class="form-control" formControlName="content">
+                </textarea>
+              </div>
+              <button class="btn btn-success" [disabled]="postFrom.invalid"
+                      type="submit">Enregistrer
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

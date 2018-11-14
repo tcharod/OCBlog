@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Post } from './models/Post.model';
+import {Component} from '@angular/core';
+import {Post} from './models/Post.model';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,16 @@ import { Post } from './models/Post.model';
 })
 export class AppComponent {
   title = 'OCBlog';
-}
 
-export const POSTS: Post[] = [
-  new Post('Mon premier post', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ligula in diam egestas ornare ultricies nec ex. Phasellus ullamcorper dolor lacinia, vehicula augue vitae, cursus mauris.tra, per inceptos himenaeos. Nam placerat quam et accumsan maximus.'),
-  new Post('Mon secon post', 'Lorem ipsum dolor sit amet, Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam placerat quam et accumsan maximus.'),
-  new Post('Un troisieme post', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ligula in diam egestas ornare ultricies nec ex. Phasellus ullamcorper dolor lacinia, vehicula augue vitae, cursus mauris. Class aptent taciti sociosqu ad litora.'),
-  new Post('Est un autre post', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ligula in diam egestas ornare ultricies nec ex. Phasellus ullamcorper dolor lacinia, vehicula augue vitae, cursus mauris. Class aptent taciti sociosqu.')
-];
+  constructor() {
+    const config = {
+      apiKey: "AIzaSyCj2vhvjNUzxoEhLAWvzMPKKuUnTdMNmxI",
+      authDomain: "coursoc-72bd1.firebaseapp.com",
+      databaseURL: "https://coursoc-72bd1.firebaseio.com",
+      projectId: "coursoc-72bd1",
+      storageBucket: "coursoc-72bd1.appspot.com",
+      messagingSenderId: "986904214746"
+    };
+    firebase.initializeApp(config);
+  }
+}
