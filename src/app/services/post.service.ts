@@ -41,15 +41,13 @@ export class PostService {
     this.emitPosts();
   }
 
-  removePost(post: Post) {
-    const postIndexToRemove = this.posts.findIndex(
-      (postEl) => {
-        if (postEl === post) {
-          return true;
-        }
-      }
-    );
-    this.posts.splice(postIndexToRemove, 1);
+  updatePost(id: number, post: Post) {
+    firebase.database().ref('/posts/' + id).set(post);
+    this.emitPosts();
+  }
+
+  removePost(id: number) {
+    this.posts.splice(id, 1);
     this.savePosts();
     this.emitPosts();
   }

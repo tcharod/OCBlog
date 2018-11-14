@@ -6,11 +6,11 @@
     <div class="panel-body">
       <div class="card">
         <ul class="list-group list-group-flush" *ngIf="posts.length > 0">
-          <li *ngFor="let post of posts" class="list-group-item" [ngClass]="{
+          <li *ngFor="let post of posts; let i = index" class="list-group-item" [ngClass]="{
               'list-group-item-success' : post.loveIts > 0,
               'list-group-item-danger' : post.loveIts < 0
             }">
-            <app-post-list-item [post]="post"></app-post-list-item>
+            <app-post-list-item [post]="post" [id]="i"></app-post-list-item>
           </li>
         </ul>
         <label class="alert alert-danger" *ngIf="posts.length <= 0">
